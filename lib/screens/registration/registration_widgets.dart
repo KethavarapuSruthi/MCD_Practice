@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'app_colors.dart';
 
-// ---------- Logo (app bar, right side) ----------
+import 'app_colors.dart';
 
 class McdLogo extends StatelessWidget {
   const McdLogo({super.key});
@@ -66,8 +65,6 @@ class McdLogo extends StatelessWidget {
   }
 }
 
-// ---------- The three progress bars ----------
-
 class StepIndicator extends StatelessWidget {
   final int currentStep;
   const StepIndicator({super.key, required this.currentStep});
@@ -112,8 +109,6 @@ class StepIndicator extends StatelessWidget {
   }
 }
 
-// ---------- Label above a field ----------
-
 class FormLabel extends StatelessWidget {
   final String text;
   const FormLabel(this.text, {super.key});
@@ -133,8 +128,6 @@ class FormLabel extends StatelessWidget {
     );
   }
 }
-
-// ---------- Text field with validation ----------
 
 class AppTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -198,8 +191,6 @@ class AppTextField extends StatelessWidget {
   }
 }
 
-// ---------- White card that holds a form ----------
-
 class StepCard extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final String title;
@@ -258,8 +249,6 @@ class StepCard extends StatelessWidget {
   }
 }
 
-// ---------- Buttons ----------
-
 class GradientButton extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -274,34 +263,37 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Ink(
-        height: 56,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF3057E0), Color(0xFF243B95)],
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Ink(
+          height: 56,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFF3057E0), Color(0xFF243B95)],
+            ),
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x553057E0),
+                blurRadius: 14,
+                offset: Offset(0, 6),
+              ),
+            ],
           ),
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0x553057E0),
-              blurRadius: 14,
-              offset: Offset(0, 6),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              label,
-              style: const TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            const SizedBox(width: 8),
-            Icon(icon, color: Colors.white, size: 20),
-          ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                label,
+                style: const TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              const SizedBox(width: 8),
+              Icon(icon, color: Colors.white, size: 20),
+            ],
+          ),
         ),
       ),
     );
@@ -314,24 +306,27 @@ class OutlineBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Ink(
-        width: 100,
-        height: 56,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.border),
-        ),
-        child: const Center(
-          child: Text(
-            'Back',
-            style: TextStyle(
-              color: AppColors.navy,
-              fontSize: 17,
-              fontWeight: FontWeight.w500,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Ink(
+          width: 100,
+          height: 56,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: AppColors.border),
+          ),
+          child: const Center(
+            child: Text(
+              'Back',
+              style: TextStyle(
+                color: AppColors.navy,
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),

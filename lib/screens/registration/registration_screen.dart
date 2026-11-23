@@ -64,7 +64,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   void _createAccount() {
-    // TODO: call your API here using the controllers' values
     setState(() => _submitted = true);
   }
 

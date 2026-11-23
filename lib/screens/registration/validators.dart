@@ -14,14 +14,12 @@ class Validators {
   static String? id(String? v) {
     final value = v?.trim() ?? '';
     if (value.isEmpty) return 'Enter your ID number';
-    // Change this rule to your real ID / passport format
     if (!RegExp(r'^[a-zA-Z0-9]{6,12}$').hasMatch(value)) {
       return 'Enter a valid ID number';
     }
     return null;
   }
 
-  // Reads the DD/MM/YYYY text, so it still works after going back a step
   static String? dob(String? v) {
     final text = v?.trim() ?? '';
     final parts = text.split('/');
@@ -57,7 +55,6 @@ class Validators {
   static String? mobile(String? v) {
     final value = v?.trim() ?? '';
     if (value.isEmpty) return 'Enter your mobile number';
-    // 8 digits (Oman). Change if you need another format
     if (!RegExp(r'^\d{8}$').hasMatch(value)) {
       return 'Enter a valid mobile number';
     }
@@ -66,7 +63,7 @@ class Validators {
 
   static String? depository(String? v) {
     final value = v?.trim() ?? '';
-    if (value.isEmpty) return null; // optional field
+    if (value.isEmpty) return null; 
     if (!RegExp(r'^[a-zA-Z0-9]{6,15}$').hasMatch(value)) {
       return 'Enter a valid account number';
     }
